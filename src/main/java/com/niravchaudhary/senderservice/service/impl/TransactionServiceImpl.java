@@ -16,7 +16,7 @@ public class TransactionServiceImpl implements TransactionService{
 
 	@Override
 	public void sendToQueue(Transaction transaction) {
-		restTemplate.postForEntity("http://localhost:8080/transaction", transaction,ResponseEntity.class );
+		restTemplate.postForEntity("http://localhost:8080/receiver-service/transaction", transaction,ResponseEntity.class );
 	}
 
 }

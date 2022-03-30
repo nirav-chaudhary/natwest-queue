@@ -12,7 +12,7 @@ import com.niravchaudhary.senderservice.dto.Transaction;
 import com.niravchaudhary.senderservice.service.TransactionService;
 
 @RestController
-@RequestMapping("/transaction")
+@RequestMapping("sender-service/transaction")
 public class TransactionController {
 	
 	@Autowired
