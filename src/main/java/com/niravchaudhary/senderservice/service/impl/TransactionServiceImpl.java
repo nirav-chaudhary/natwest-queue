@@ -1,13 +1,22 @@
 package com.niravchaudhary.senderservice.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
 import com.niravchaudhary.senderservice.dto.Transaction;
 import com.niravchaudhary.senderservice.service.TransactionService;
 
+@Service
 public class TransactionServiceImpl implements TransactionService{
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	public void sendToQueue(Transaction transaction) {
-		//TODO add logic to send the transaction i.e. to call the end point of other API
+		restTemplate.postForEntity("http://localhost:8080/transaction", transaction,ResponseEntity.class );
 	}
 
 }
